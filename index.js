@@ -10,7 +10,7 @@ require("./configs/db");
 //routes
 app.use("/api",require("./routes/indexRoutes"))
 
-app.listen(3000,(error)=>{
+app.listen(PORT,(error)=>{
     if(error)
     console.log(error);
     else

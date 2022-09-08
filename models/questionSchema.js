@@ -1,21 +1,9 @@
 const mongoose = require("mongoose");
 
 
-const responseSchema = new mongoose.Schema({
-    responseID:mongoose.Schema.Types.ObjectId,
-    responderID:mongoose.Schema.Types.ObjectId,
-    response:{
-        type:String,
-        required:true
-    },
-    isApproved:{
-      type:Boolean,
-      default:false
-    },
-    reviewerID:mongoose.Schema.Types.ObjectId
-},{ timestamps: true })
+// const responseSchema = new mongoose.Schema(,{ timestamps: true })
 
-const Response = mongoose.model('Response',responseSchema);
+// const Response = mongoose.model('Response',responseSchema);
 
 
 const questionSchema = new mongoose.Schema({
@@ -37,13 +25,26 @@ const questionSchema = new mongoose.Schema({
     default:false
   },
   responses:[
-   {
-    type:mongoose.Schema.Types.ObjectId,
-    ref:'Response'
-   }
+    {
+      responseID:mongoose.Schema.Types.ObjectId,
+      responderID:mongoose.Schema.Types.ObjectId,
+      response:{
+          type:String,
+          required:true
+      },
+      isApproved:{
+        type:Boolean,
+        default:false
+      },
+      reviewerID:mongoose.Schema.Types.ObjectId,
+      timestamps:{
+        type:String,
+        default:Date.now()
+      }
+  }
   ]
 },{timestamps:true})
 
 const Question = mongoose.model('Question',questionSchema);
 
-module.exports={Question, Response};
+module.exports={Question};
