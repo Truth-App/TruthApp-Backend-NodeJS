@@ -83,7 +83,9 @@ module.exports.validateResponse = async (req,res)=>{
             console.log(response._id == req.params.rid)
              if(response._id == req.params.rid){
                 response.isApproved=true;
-                console.log("yes")
+             }
+             if(req.body.reviewerID){
+                response.reviewerID = req.body.reviewerID;
              }
          }))
          const updated = new Question(response[0])
