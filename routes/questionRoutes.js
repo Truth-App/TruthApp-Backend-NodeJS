@@ -10,10 +10,10 @@ router.get("/",getQuestion);
 //POST -Validate
 router.post("/validate/:qid", validateQuestion)
 
-//PATCH - Update Response
+//PATCH - Create Response
 router.patch("/create-response/:qid",createResponse)
 
 //PATCH - Update Response
-router.patch("/validateResponse/:rid",validateResponse)
+router.patch("/validate-response/:rid",validateResponse)
 
 module.exports=router;

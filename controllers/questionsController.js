@@ -1,6 +1,6 @@
 
 const { mongoose } = require("mongoose");
-const {Question} =require("../models/questionSchema");
+const  Question=require("../models/questionSchema");
 
 module.exports.createQuestion = async(req,res)=>{
     try{
@@ -38,10 +38,9 @@ module.exports.getQuestion = async(req,res)=>{
 
 module.exports.validateQuestion= async (req,res)=>{
     try{
-       const response = await Question.findByIdAndUpdate({"_id":req.params.qid},{"isApproved":true});
+        await Question.findByIdAndUpdate({"_id":req.params.qid},{"isApproved":true});
        return res.status(200).json({
-        "update":true,
-        response
+        "update":true
        })
     }catch(error){
         console.log(error);
@@ -99,22 +98,3 @@ return res.json({
 })
     }
 }
-
-// [
-//     {
-//       _id: new ObjectId("631818c3bf3ce08ae79899f0"),
-//       question: 'test q',
-//       type: 'personal',
-//       isPublic: false,
-//       isApproved: true,
-//       responses: [
-//         [Object], [Object],
-//         [Object], [Object],
-//         [Object], [Object],
-//         [Object], [Object]
-//       ],
-//       createdAt: 2022-09-07T04:06:27.136Z,
-//       updatedAt: 2022-09-07T06:42:06.065Z,
-//       __v: 0
-//     }
-//   ]
