@@ -15,7 +15,12 @@ const questionSchema = new mongoose.Schema({
     required:true
   },
   type:String,
+  questionCategory:String,
   reviewerID:mongoose.Schema.Types.ObjectId,
+  questionRejectedScore:{
+    type:Number,
+     default:2
+  },
   isPublic:{
     type:Boolean,
     required:true
@@ -36,6 +41,10 @@ const questionSchema = new mongoose.Schema({
         type:Boolean,
         default:false
       },
+      responseRejectedScore:{
+        type:Number,
+         default:2
+      },
       reviewerID:mongoose.Schema.Types.ObjectId,
       timestamps:{
         type:String,
@@ -47,4 +56,5 @@ const questionSchema = new mongoose.Schema({
 
 const Question = mongoose.model('Question',questionSchema);
 
-module.exports=Question;
+
+module.exports={Question};
