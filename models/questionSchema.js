@@ -1,10 +1,6 @@
 const mongoose = require("mongoose");
 
 
-// const responseSchema = new mongoose.Schema(,{ timestamps: true })
-
-// const Response = mongoose.model('Response',responseSchema);
-
 
 const questionSchema = new mongoose.Schema({
   questionCreatorID:{
